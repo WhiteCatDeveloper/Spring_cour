@@ -1,10 +1,21 @@
 package org.example.spring;
 
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.*;
 import org.springframework.stereotype.Component;
 
 @Configuration
-@ComponentScan("org.example.spring")
+@PropertySource("classpath:myApp.properties")
+//@ComponentScan("org.example.spring")
 public class MyConfig {
+
+    @Bean
+    @Scope("singleton")
+    public Pet catBean () {
+        return  new Cat();
+    }
+
+    @Bean
+    public Person personBean() {
+        return new Person(catBean());
+    }
 }
