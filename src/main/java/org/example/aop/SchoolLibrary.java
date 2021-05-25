@@ -1,4 +1,4 @@
-package org.example.aop.aspects;
+package org.example.aop;
 
 import org.example.aop.AbstractLibrary;
 import org.springframework.stereotype.Component;
